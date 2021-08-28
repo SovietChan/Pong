@@ -18,6 +18,8 @@ public class MainManager : MonoBehaviour
 
     private bool isDebugWindowShown = false;
 
+    public Trajectory trajectory;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,8 @@ public class MainManager : MonoBehaviour
         guiStyle.alignment = TextAnchor.UpperCenter;
         GUI.TextArea(new Rect(Screen.width / 2 - 200, Screen.height - 200, 400, 110), debugText, guiStyle);
 
+     
+
         if (GUI.Button(new Rect(Screen.width / 2 - 60, 35, 120, 53), "RESTART"))
         {
             player1.ResetScore();
@@ -98,6 +102,7 @@ public class MainManager : MonoBehaviour
         if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height - 73, 120, 53), "TOGGLE\nDEBUG INFO"))
         {
             isDebugWindowShown = !isDebugWindowShown;
+            trajectory.enabled = !trajectory.enabled;
         }
     }
 }
